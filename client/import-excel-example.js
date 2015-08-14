@@ -6,7 +6,10 @@ Template.import.events({
 
         var reader = new FileReader();
         reader.onload = function(fileLoadEvent) {
-             Meteor.call('importFile', event.target.value, reader.result);
+             Meteor.call('importFile', event.target.value, reader.result, function(error, result){
+                console.log('hello')
+                alert(result);
+             });
         };
         reader.readAsBinaryString(file);
       })
